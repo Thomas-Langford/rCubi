@@ -1,0 +1,19 @@
+.column {
+  flex: 1 0 0;
+}
+
+.sm {
+  flex: 0 0 var(--col-width-sm);
+}
+
+@media (min-width: 768px) {
+  .md {
+    flex: 0 0 var(--col-width-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg {
+    flex: 0 0 var(--col-width-lg);
+  }
+}

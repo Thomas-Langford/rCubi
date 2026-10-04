@@ -17,7 +17,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,css}\"",
+    "format::check": "prettier \"./src/**/*.{js,jsx,ts,tsx,css}\"",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -50,6 +52,7 @@
     "eslint-plugin-storybook": "^10.6.1",
     "globals": "^17.12.0",
     "playwright": "latest",
+    "prettier": "^3.9.9",
     "storybook": "^10.6.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.69.0",
