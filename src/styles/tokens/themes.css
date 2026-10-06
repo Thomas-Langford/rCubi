@@ -1,0 +1,41 @@
+/* 
+* Contains variable definitions for light and dark mode
+*/
+
+/* Default to light mode */
+:root {
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-border: #d1d1d1;
+}
+
+/* Use dark mode if the system preference is dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #111111;
+    --color-surface: #1e1e1e;
+    --color-text: #ffffff;
+    --color-text-muted: #aaaaaa;
+    --color-border: #444444;
+  }
+}
+
+/* Override to use dark mode regardless of system theme preference */
+[data-theme="dark"] {
+  --color-background: #111111;
+  --color-surface: #1e1e1e;
+  --color-text: #ffffff;
+  --color-text-muted: #aaaaaa;
+  --color-border: #444444;
+}
+
+/* Override to use light mode regardless of system theme preference */
+[data-theme="light"] {
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-border: #d1d1d1;
+}
