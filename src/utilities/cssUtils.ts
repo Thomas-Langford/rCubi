@@ -21,3 +21,10 @@ export const getPaddingClassname = (
 ) => {
   return getSpacingClassname(`padding-${direction}`, spacing);
 };
+
+export const getMarginClassname = (
+  direction: Direction,
+  spacing: Spacing | undefined
+) => {
+  return getSpacingClassname(`margin-${direction}`, spacing);
+};

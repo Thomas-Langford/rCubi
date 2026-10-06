@@ -1,5 +1,6 @@
 .box {
   display: flex;
+  box-sizing: border-box;
   flex-direction: var(--box-flex-direction, "row");
   justify-content: var(--box-justify-content, "flex-start");
   align-items: var(--box-align-items, "stretch");

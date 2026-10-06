@@ -82,65 +82,149 @@
   padding-left: var(--spacing-xl);
 }
 
+/* margin Top */
+.margin-top-xs {
+  margin-top: var(--spacing-xs);
+}
+
+.margin-top-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.margin-top-md {
+  margin-top: var(--spacing-md);
+}
+
+.margin-top-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.margin-top-xl {
+  margin-top: var(--spacing-xl);
+}
+
+/* margin Right */
+.margin-right-xs {
+  margin-right: var(--spacing-xs);
+}
+
+.margin-right-sm {
+  margin-right: var(--spacing-sm);
+}
+
+.margin-right-md {
+  margin-right: var(--spacing-md);
+}
+
+.margin-right-lg {
+  margin-right: var(--spacing-lg);
+}
+
+.margin-right-xl {
+  margin-right: var(--spacing-xl);
+}
+
+/* margin Bottom */
+.margin-bottom-xs {
+  margin-bottom: var(--spacing-xs);
+}
+
+.margin-bottom-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.margin-bottom-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.margin-bottom-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.margin-bottom-xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* margin Left */
+.margin-left-xs {
+  margin-left: var(--spacing-xs);
+}
+
+.margin-left-sm {
+  margin-left: var(--spacing-sm);
+}
+
+.margin-left-md {
+  margin-left: var(--spacing-md);
+}
+
+.margin-left-lg {
+  margin-left: var(--spacing-lg);
+}
+
+.margin-left-xl {
+  margin-left: var(--spacing-xl);
+}
+
 /* Gap */
 .gap-xs {
-  gap: 0.5em;
+  gap: var(--spacing-xs);
 }
 
 .gap-sm {
-  gap: 1em;
+  gap: var(--spacing-sm);
 }
 
 .gap-md {
-  gap: 1.5em;
+  gap: var(--spacing-md);
 }
 
 .gap-lg {
-  gap: 2em;
+  gap: var(--spacing-lg);
 }
 
 .gap-xl {
-  gap: 2.5em;
+  gap: var(--spacing-xl);
 }
 
 /* Row Gap*/
 .row-gap-xs {
-  row-gap: 0.5em;
+  row-gap: var(--spacing-xs);
 }
 
 .row-gap-sm {
-  row-gap: 1em;
+  row-gap: var(--spacing-sm);
 }
 
 .row-gap-md {
-  row-gap: 1.5em;
+  row-gap: var(--spacing-md);
 }
 
 .row-gap-lg {
-  row-gap: 2em;
+  row-gap: var(--spacing-lg);
 }
 
 .row-gap-xl {
-  row-gap: 2.5em;
+  row-gap: var(--spacing-xl);
 }
 
 /* Column Gap */
 .column-gap-xs {
-  column-gap: 0.5em;
+  column-gap: var(--spacing-xs);
 }
 
 .column-gap-sm {
-  column-gap: 1em;
+  column-gap: var(--spacing-sm);
 }
 
 .column-gap-md {
-  column-gap: 1.5em;
+  column-gap: var(--spacing-md);
 }
 
 .column-gap-lg {
-  column-gap: 2em;
+  column-gap: var(--spacing-lg);
 }
 
 .column-gap-xl {
-  column-gap: 2.5em;
+  column-gap: var(--spacing-xl);
 }

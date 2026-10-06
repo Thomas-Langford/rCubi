@@ -1,64 +1,15 @@
 import type { CSSProperties, ReactNode } from 'react';
 import styles from './Box.module.css';
 import {
-  type AlignItems,
-  type FlexDirection,
-  type JustifyContent,
-  type Spacing,
-} from '../../types/cssTypes';
-import {
   getClassString,
+  getMarginClassname,
   getPaddingClassname,
   getSpacingClassname,
 } from '../../utilities/cssUtils';
+import type { FlexProps, LayoutProps, StyleProps } from '../../types/propTypes';
 
-interface BoxProps {
+export interface BoxProps extends LayoutProps, FlexProps, StyleProps {
   children: ReactNode;
-
-  /**
-   * Determines the main axis of the flex box.
-   * 'row' will lay out child components side by side
-   * 'row-reverse' will lay out child components side by side in reverse order
-   * 'column' will lay out child components in a vertical stack
-   * 'column-reverse' will lay out child components in a vertical stack in reverse order
-   */
-  flexDirection?: FlexDirection;
-
-  /** This defines the alignment along the main axis. */
-  justifyContent?: JustifyContent;
-
-  /** This defines the default behavior for how flex items are laid out along the cross axis on the current line */
-  alignItems?: AlignItems;
-
-  /** Controls the white space between child rows and columns */
-  gap?: Spacing;
-
-  /** Controls the white space between child rows*/
-  rowGap?: Spacing;
-
-  /** Controls the white space between child columns */
-  columnGap?: Spacing;
-
-  /** Controls the padding on all sides of the component */
-  padding?: Spacing;
-
-  /** Controls the padding on the left and right sides of the component */
-  paddingX?: Spacing;
-
-  /** Controls the padding on the top and bottom sides of the component */
-  paddingY?: Spacing;
-
-  /** Controls the padding on the top of the component */
-  paddingTop?: Spacing;
-
-  /** Controls the padding on the right of the component */
-  paddingRight?: Spacing;
-
-  /** Controls the padding on the bottom of the component */
-  paddingBottom?: Spacing;
-
-  /** Controls the padding on the left of the component */
-  paddingLeft?: Spacing;
 }
 
 type BoxStyle = CSSProperties & {
@@ -67,8 +18,19 @@ type BoxStyle = CSSProperties & {
   '--box-align-items': string | undefined;
 };
 
+/**
+ * The most basic layout primitive. This wraps flexbox behavior and
+ * provides a number of convenient props for consistent styling, though manual
+ * styling can be supplied through the `className` and `style` props.
+ *
+ * See the following link for an excellent explanation on all flexbox
+ * properties, including those this component exposes:
+ * https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
 export const Box = ({
   children,
+  width,
+  height,
   flexDirection,
   justifyContent,
   alignItems,
@@ -82,11 +44,25 @@ export const Box = ({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  margin,
+  marginX,
+  marginY,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  className,
+  style,
 }: BoxProps) => {
   const padTopSpacing = paddingTop ?? paddingY ?? padding ?? undefined;
   const padRightSpacing = paddingRight ?? paddingX ?? padding ?? undefined;
   const padBottomSpacing = paddingBottom ?? paddingY ?? padding ?? undefined;
   const padLeftSpacing = paddingLeft ?? paddingX ?? padding ?? undefined;
+
+  const marginTopSpacing = marginTop ?? marginY ?? margin ?? undefined;
+  const marginRightSpacing = marginRight ?? marginX ?? margin ?? undefined;
+  const marginBottomSpacing = marginBottom ?? marginY ?? margin ?? undefined;
+  const marginLeftSpacing = marginLeft ?? marginX ?? margin ?? undefined;
 
   const classes = getClassString([
     styles.box,
@@ -97,16 +73,24 @@ export const Box = ({
     getPaddingClassname('right', padRightSpacing),
     getPaddingClassname('bottom', padBottomSpacing),
     getPaddingClassname('left', padLeftSpacing),
+    getMarginClassname('top', marginTopSpacing),
+    getMarginClassname('right', marginRightSpacing),
+    getMarginClassname('bottom', marginBottomSpacing),
+    getMarginClassname('left', marginLeftSpacing),
+    className,
   ]);
 
-  const style: BoxStyle = {
+  const inlineStyles: BoxStyle = {
     '--box-flex-direction': flexDirection,
     '--box-justify-content': justifyContent,
     '--box-align-items': alignItems,
+    width,
+    height,
+    ...(style ?? {}),
   };
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={inlineStyles}>
       {children}
     </div>
   );

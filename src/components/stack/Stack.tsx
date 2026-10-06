@@ -1,43 +1,18 @@
 import type { ReactNode } from 'react';
-import { type Spacing } from '../../types/cssTypes';
-import { Box } from '../box/Box';
+import { Box, type BoxProps } from '../box/Box';
+import type { LayoutProps, StyleProps } from '../../types/propTypes';
 
-interface StackProps {
+export interface StackProps extends LayoutProps, StyleProps {
   children: ReactNode;
-  gap?: Spacing;
-  padding?: Spacing;
-  paddingX?: Spacing;
-  paddingY?: Spacing;
-  paddingTop?: Spacing;
-  paddingRight?: Spacing;
-  paddingBottom?: Spacing;
-  paddingLeft?: Spacing;
 }
 
-export const Stack = ({
-  children,
-  gap,
-  padding,
-  paddingX,
-  paddingY,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-}: StackProps) => {
-  return (
-    <Box
-      flexDirection="column"
-      gap={gap}
-      padding={padding}
-      paddingX={paddingX}
-      paddingY={paddingY}
-      paddingTop={paddingTop}
-      paddingRight={paddingRight}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-    >
-      {children}
-    </Box>
-  );
+/**
+ * Aligns child components vertically in a stack.
+ *
+ * See `Box` documentation for details on props.
+ *
+ * Shorthand for `<Box flexDirection: 'column'>`.
+ */
+export const Stack = ({ ...props }: BoxProps) => {
+  return <Box {...props} flexDirection="column" />;
 };

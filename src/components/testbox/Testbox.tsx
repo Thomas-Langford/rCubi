@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Box } from '../box/Box';
 
 interface TestboxProps {
   children?: ReactNode;
@@ -18,15 +19,16 @@ export const Testbox = ({
   padding = 0,
 }: TestboxProps) => {
   return (
-    <div
+    <Box
       style={{
         border: border ? 'solid' : 'none',
         backgroundColor,
         padding: `${padding}px`,
         height: children === undefined ? '60px' : undefined,
+        width: '100%',
       }}
     >
       {children ?? null}
-    </div>
+    </Box>
   );
 };
